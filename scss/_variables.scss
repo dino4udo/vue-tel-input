@@ -1,31 +1,32 @@
-$vti-container-border-radius: 3px !default;
-$vti-container-border-color: #bbb !default;
-$vti-container-border-size: 1px !default;
-$vti-container-focus-border-color:#66afe9 !default;
+$vti-container-border-radius      : 3px !default;
+$vti-container-border-color       : #bbb !default;
+$vti-container-border-size        : 1px !default;
+$vti-container-focus-border-color : #66afe9 !default;
 $vti-container-focus-border-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6) !default;
 
-$vti-dropdown-padding: 7px !default;
-$vti-dropdown-max-height: 300px !default;
-$vti-dropdown-open-background-color: #f3f3f3 !default;
-$vti-dropdown-hover-background-color: #f3f3f3 !default;
+$vti-dropdown-padding                  : 7px !default;
+$vti-dropdown-max-height               : 300px !default;
+$vti-dropdown-open-background-color    : #f3f3f3 !default;
+$vti-dropdown-hover-background-color   : #f3f3f3 !default;
 $vti-dropdown-disabled-background-color: #f3f3f3 !default;
 
-$vti-dropdown-button-font-size: 0.8em !default;
-$vti-dropdown-button-font-color: #666 !default;
+$vti-dropdown-button-font-size  : 0.8em !default;
+$vti-dropdown-button-font-color : #666 !default;
 $vti-dropdown-button-flag-margin: 0 5px 0 6px !default;
 
-$vti-dropdown-list-zindex: 1 !default;
-$vti-dropdown-list-padding: 0 !default;
-$vti-dropdown-list-margin: 0 !default;
-$vti-dropdown-list-max-height: 200px !default;
+$vti-dropdown-list-zindex          : 1 !default;
+$vti-dropdown-list-radius          : 0 0 $vti-container-border-radius $vti-container-border-radius !default;
+$vti-dropdown-list-padding         : 0 !default;
+$vti-dropdown-list-margin          : 0 !default;
+$vti-dropdown-list-max-height      : 200px !default;
 $vti-dropdown-list-background-color: #fff !default;
-$vti-dropdown-list-border: 1px solid #ccc !default;
-$vti-dropdown-list-width: 390px !default;
+$vti-dropdown-list-border          : 1px solid #ccc !default;
+$vti-dropdown-list-width           : 390px !default;
 
-$vti-dropdown-item-padding: 4px 15px !default;
+$vti-dropdown-item-padding          : 4px 15px !default;
 $vti-dropdown-item-highlighted-color: #f3f3f3 !default;
 
-$vti-input-border: none !default;
+$vti-input-border       : none !default;
 $vti-input-border-radius: 0 2px 2px 0 !default;
-$vti-input-width: 100% !default;
-$vti-input-padding-left: 7px !default;
+$vti-input-width        : 100% !default;
+$vti-input-padding-left : 7px !default;

@@ -57,6 +57,7 @@
 }
 .vti__dropdown-list {
   z-index: $vti-dropdown-list-zindex;
+  border-radius: $vti-dropdown-list-radius;
   padding: $vti-dropdown-list-padding;
   margin: $vti-dropdown-list-margin;
   text-align: left;
