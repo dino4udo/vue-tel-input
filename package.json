@@ -22,7 +22,7 @@
   },
   "files": [
     "dist/",
-    "src/scss/"
+    "scss/"
   ],
   "main": "dist/vue-tel-input.umd.js",
   "module": "dist/vue-tel-input.esm.js",
