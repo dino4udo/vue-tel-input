@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import './scss/vue-tel-input.scss';
+import '@/scss/test.overwrites.scss';
 
 export default {
   name: 'App',
