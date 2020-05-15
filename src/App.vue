@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import './scss/vti-build.scss';
+
 export default {
   name: 'App',
   data() {

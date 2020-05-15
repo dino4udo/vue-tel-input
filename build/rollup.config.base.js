@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
 import cjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
+import scss from 'rollup-plugin-scss';
 import postcss from 'rollup-plugin-postcss';
 import analyze from 'rollup-plugin-analyzer';
 
@@ -11,6 +12,7 @@ export default {
   input: 'src/index.js',
   inlineDynamicImports: true,
   plugins: [
+    scss(),
     vue({
       css: true,
     }),
