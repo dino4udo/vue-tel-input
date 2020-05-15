@@ -15,7 +15,8 @@ $vti-dropdown-button-font-color : #666 !default;
 $vti-dropdown-button-flag-margin: 0 5px 0 6px !default;
 
 $vti-dropdown-list-zindex          : 1 !default;
-$vti-dropdown-list-radius          : 0 0 $vti-container-border-radius $vti-container-border-radius !default;
+$vti-dropdown-list-radius-above    : $vti-container-border-radius $vti-container-border-radius 0 0 !default;
+$vti-dropdown-list-radius-below    : 0 0 $vti-container-border-radius $vti-container-border-radius !default;
 $vti-dropdown-list-padding         : 0 !default;
 $vti-dropdown-list-margin          : 0 !default;
 $vti-dropdown-list-max-height      : 200px !default;

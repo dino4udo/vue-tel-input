@@ -57,7 +57,6 @@
 }
 .vti__dropdown-list {
   z-index: $vti-dropdown-list-zindex;
-  border-radius: $vti-dropdown-list-radius;
   padding: $vti-dropdown-list-padding;
   margin: $vti-dropdown-list-margin;
   text-align: left;
@@ -71,11 +70,13 @@
   width: $vti-dropdown-list-width;
 
   &.below {
+    border-radius: $vti-dropdown-list-radius-below;
     top: 33px;
   }
 
   &.above {
     top: auto;
+    border-radius: $vti-dropdown-list-radius-above;
     bottom: 100%;
   }
 }
