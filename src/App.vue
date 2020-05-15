@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import './scss/vue-tel-input.scss';
+
 export default {
   name: 'App',
   data() {

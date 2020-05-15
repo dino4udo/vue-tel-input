@@ -570,7 +570,7 @@ export default {
 </script>
 
 <style>
-.vue-tel-input {
+/* .vue-tel-input {
   border-radius: 3px;
   display: flex;
   border: 1px solid #bbb;
@@ -667,5 +667,5 @@ export default {
   width: 100%;
   outline: none;
   padding-left: 7px;
-}
+} */
 </style>
