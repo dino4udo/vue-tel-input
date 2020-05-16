@@ -1,39 +1,63 @@
 .vue-tel-input {
-  border-radius: $vti-container-border-radius;
   display: flex;
-  border: $vti-container-border-size solid $vti-container-border-color;
-  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  border-radius: $vti-radius;
+  box-shadow: $vti-shadow;
+  border: $vti-border-size solid $vti-border-color;
+  border-color: $vti-border-color;
+  // text-align: left;
 
-  &.disabled {
-    .selection, .dropdown, input {
+  // Colors
+  @each $name, $color in $colors {
+    &.is-#{$name} {
+      border-color: $color;
+      &:focus-within, &.is-focused, &:active, &.is-active {
+        // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-focus-shadow-size $vti-focus-shadow-color;
+        box-shadow: $vti-focus-shadow-size rgba($color, 0.25);
+      }
+    }
+  }
+
+  &.disabled, &[readonly], &[disabled] {
+    .vti__dropdown, .vti__input {
+        background-color: $vti-disabled-color;
+        border-color: $vti-disabled-border-color;
+        box-shadow: none;
         cursor: no-drop;
+      }
+  }
+  &[readonly] {
+    box-shadow: none;
+    .selection, .dropdown, input {
+        box-shadow: none;
     }
   }
-  &:focus-within {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-focus-shadow-color;
-    border-color: $vti-container-focus-border-color;
-    &.is-success {
-      border-color: $vti-container-success-border-color;
-    }
-    &.is-danger {
-      border-color: $vti-container-danger-border-color;
-    }
+  &:hover, &.is-hovered {
+    border-color: $vti-hover-border-color;
   }
-  &.is-success {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-success-border-color;
-    border-color: $vti-container-success-border-color;
-  }
-  &.is-danger {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-danger-border-color;
-    border-color: $vti-container-danger-border-color;
+  &:focus-within, &.is-focused, &:active, &.is-active {
+    border-color: $vti-focus-border-color;
+    box-shadow: $vti-focus-shadow-size $vti-focus-shadow-color;
   }
   
+  ///
+  ///
+  ///
+
+  .vti__input {
+    border: $vti-input-border;
+    border-radius: 0 $vti-radius $vti-radius 0;
+    width: $vti-input-width;
+    outline: none;
+    padding-left: $vti-input-padding-left;
+  }
   .vti__dropdown {
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    border-radius: $vti-container-border-radius 0 0 $vti-container-border-radius;
+    border-radius: $vti-radius 0 0 $vti-radius;
     position: relative;
     padding: $vti-dropdown-padding;
     cursor: pointer;
@@ -58,16 +82,16 @@
     }
   }
   .vti__selection {
-    font-size: $vti-dropdown-button-font-size;
+    font-size: $vti-button-font-size;
     display: flex;
     align-items: center;
   
     .vti__country-code {
-      color: $vti-dropdown-button-font-color;
+      color: $vti-button-font-color;
     }
   }
   .vti__flag {
-    margin: $vti-dropdown-button-flag-margin;
+    margin: $vti-button-flag-margin;
   }
   .vti__dropdown-list {
     z-index: $vti-dropdown-list-zindex;
@@ -121,11 +145,4 @@
     }
     
   }
-  .vti__input {
-    border: $vti-input-border;
-    border-radius: $vti-input-border-radius;
-    width: $vti-input-width;
-    outline: none;
-    padding-left: $vti-input-padding-left;
-}
 }

@@ -8,7 +8,7 @@
         href="https://github.com/EducationLink/vue-tel-input/graphs/contributors">awesome humans</a>.</h2>
       <div style="width: 500px; margin: 20px auto;">
         <vue-tel-input
-          :preferred-countries="['us', 'gb', 'ua']"
+          :preferred-countries="['AE', 'gb', 'ua']"
           :valid-characters-only="true"
           @input="onInput"/>
       </div>
