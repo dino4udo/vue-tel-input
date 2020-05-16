@@ -3377,6 +3377,12 @@
         });
         return result;
       },
+      validationClasses: function validationClasses() {
+        return this.phoneText ? {
+          'is-success': this.phoneObject.isValid,
+          'is-danger': !this.phoneObject.isValid
+        } : {};
+      },
       phoneText: function phoneText() {
         var key = 'input';
 
@@ -3839,7 +3845,7 @@
     var _c = _vm._self._c || _h;
 
     return _c('div', {
-      class: ['vue-tel-input', _vm.wrapperClasses, {
+      class: ['vue-tel-input', _vm.wrapperClasses, _vm.validationClasses, {
         disabled: _vm.disabled
       }]
     }, [_c('div', {

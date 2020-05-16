@@ -9,6 +9,14 @@
   cursor: no-drop;
 }
 
+.vue-tel-input.is-success {
+  border-color: green;
+}
+
+.vue-tel-input.is-danger {
+  border-color: red;
+}
+
 .vue-tel-input:focus-within {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   border-color: #66afe9;
@@ -19,6 +27,7 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  border-radius: 3px 0 0 3px;
   position: relative;
   padding: 7px;
   cursor: pointer;
