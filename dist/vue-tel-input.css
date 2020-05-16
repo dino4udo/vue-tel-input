@@ -15,12 +15,10 @@
 }
 
 .vue-tel-input:focus-within.is-success {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px green;
   border-color: green;
 }
 
 .vue-tel-input:focus-within.is-danger {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px red;
   border-color: red;
 }
 
