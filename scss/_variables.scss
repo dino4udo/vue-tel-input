@@ -1,8 +1,11 @@
-$vti-container-border-radius      : 3px !default;
-$vti-container-border-color       : #bbb !default;
-$vti-container-border-size        : 1px !default;
-$vti-container-focus-border-color : #66afe9 !default;
-$vti-container-focus-border-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6) !default;
+$vti-container-border-radius       : 3px !default;
+$vti-container-border-size         : 1px !default;
+$vti-container-border-color        : #bbb !default;
+$vti-container-success-border-color: green !default;
+$vti-container-danger-border-color : red !default;
+$vti-container-focus-border-color  : #66afe9 !default;
+$vti-container-focus-shadow-size : 0 0 8px !default;
+$vti-container-focus-shadow-color : rgba(102, 175, 233, 0.6) !default;
 
 $vti-dropdown-padding                  : 7px !default;
 $vti-dropdown-max-height               : 300px !default;

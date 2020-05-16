@@ -1,5 +1,5 @@
 .vue-tel-input {
-  border-radius:$vti-container-border-radius;
+  border-radius: $vti-container-border-radius;
   display: flex;
   border: $vti-container-border-size solid $vti-container-border-color;
   text-align: left;
@@ -9,9 +9,14 @@
         cursor: no-drop;
     }
   }
-  
+  &.is-success {
+    border-color: $vti-container-success-border-color;
+  }
+  &.is-danger {
+    border-color: $vti-container-danger-border-color;
+  }
   &:focus-within {
-    box-shadow: $vti-container-focus-border-shadow;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-focus-shadow-color;
     border-color: $vti-container-focus-border-color;
   }
   
@@ -20,6 +25,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    border-radius: $vti-container-border-radius 0 0 $vti-container-border-radius;
     position: relative;
     padding: $vti-dropdown-padding;
     cursor: pointer;

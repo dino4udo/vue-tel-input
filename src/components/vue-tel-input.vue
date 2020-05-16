@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vue-tel-input', wrapperClasses, { disabled: disabled }]">
+  <div :class="['vue-tel-input', wrapperClasses, validationClasses, { disabled: disabled }]">
     <div
       v-click-outside="clickedOutside"
       :class="['vti__dropdown', { open: open, disabled: dropdownOptions.disabledDropdown }]"
@@ -258,6 +258,14 @@ export default {
         country: this.activeCountry,
       });
       return result;
+    },
+    validationClasses() {
+      return this.phoneText
+        ? {
+          'is-success': this.phoneObject.isValid,
+          'is-danger': !this.phoneObject.isValid,
+        }
+        : {};
     },
     phoneText() {
       let key = 'input';
