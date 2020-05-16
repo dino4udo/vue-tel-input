@@ -3298,6 +3298,7 @@
         },
         open: false,
         finishMounted: false,
+        highlightedIndex: null,
         selectedIndex: null,
         typeToFindInput: '',
         typeToFindTimer: null,
@@ -3570,13 +3571,15 @@
         });
       },
       getItemClass: function getItemClass(index, iso2) {
-        var highlighted = this.selectedIndex === index;
+        var highlighted = this.highlightedIndex === index;
+        var selected = this.selectedIndex === index;
         var lastPreferred = index === this.preferredCountries.length - 1;
         var preferred = this.preferredCountries.some(function (c) {
           return c.toUpperCase() === iso2;
         });
         return {
           highlighted: highlighted,
+          selected: selected,
           'last-preferred': lastPreferred,
           preferred: preferred
         };
@@ -3889,10 +3892,10 @@
         class: ['vti__dropdown-item', _vm.getItemClass(index, pb.iso2)],
         on: {
           "click": function click($event) {
-            return _vm.choose(pb, true);
+            _vm.selectedIndex = index, _vm.choose(pb, true);
           },
           "mousemove": function mousemove($event) {
-            _vm.selectedIndex = index;
+            _vm.highlightedIndex = index;
           }
         }
       }, [_vm.enabledFlags ? _c('div', {
