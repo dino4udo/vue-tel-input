@@ -22,8 +22,8 @@
           v-for="(pb, index) in sortedCountries"
           :class="['vti__dropdown-item', getItemClass(index, pb.iso2)]"
           :key="pb.iso2 + (pb.preferred ? '-preferred' : '')"
-          @click="choose(pb, true)"
-          @mousemove="selectedIndex = index"
+          @click="selectedIndex = index, choose(pb, true)"
+          @mousemove="highlightedIndex = index"
         >
           <div v-if="enabledFlags" :class="['vti__flag', pb.iso2.toLowerCase()]" />
           <strong>{{ pb.name }}</strong>
@@ -193,6 +193,7 @@ export default {
       activeCountry: { iso2: '' },
       open: false,
       finishMounted: false,
+      highlightedIndex: null,
       selectedIndex: null,
       typeToFindInput: '',
       typeToFindTimer: null,
@@ -405,11 +406,13 @@ export default {
       return this.filteredCountries.find((country) => country.iso2 === iso.toUpperCase());
     },
     getItemClass(index, iso2) {
-      const highlighted = this.selectedIndex === index;
+      const highlighted = this.highlightedIndex === index;
+      const selected = this.selectedIndex === index;
       const lastPreferred = index === this.preferredCountries.length - 1;
       const preferred = this.preferredCountries.some((c) => c.toUpperCase() === iso2);
       return {
         highlighted,
+        selected,
         'last-preferred': lastPreferred,
         preferred,
       };

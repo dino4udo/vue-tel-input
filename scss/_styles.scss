@@ -14,99 +14,104 @@
     box-shadow: $vti-container-focus-border-shadow;
     border-color: $vti-container-focus-border-color;
   }
-}
-.vti__dropdown {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  position: relative;
-  padding: $vti-dropdown-padding;
-  cursor: pointer;
-
-  &.show {
-    max-height: $vti-dropdown-max-height;
-    overflow: scroll;
-  }
-
-  &.open {
-    background-color: $vti-dropdown-open-background-color;
-  }
-
-  &:hover {
-    background-color: $vti-dropdown-hover-background-color;
-  }
-
-  &.disabled {
-    cursor: no-drop;
-    outline:none;
-    background-color: $vti-dropdown-disabled-background-color;
-  }
-}
-.vti__selection {
-  font-size: $vti-dropdown-button-font-size;
-  display: flex;
-  align-items: center;
-
-  .vti__country-code {
-    color: $vti-dropdown-button-font-color;
-  }
-}
-.vti__flag {
-  margin: $vti-dropdown-button-flag-margin;
-}
-.vti__dropdown-list {
-  z-index: $vti-dropdown-list-zindex;
-  padding: $vti-dropdown-list-padding;
-  margin: $vti-dropdown-list-margin;
-  text-align: left;
-  list-style: none;
-  max-height: $vti-dropdown-list-max-height;
-  overflow-y: scroll;
-  position: absolute;
-  left: -1px;
-  background-color: $vti-dropdown-list-background-color;
-  border: $vti-dropdown-list-border;
-  width: $vti-dropdown-list-width;
-
-  &.below {
-    border-radius: $vti-dropdown-list-radius-below;
-    top: 33px;
-  }
-
-  &.above {
-    top: auto;
-    border-radius: $vti-dropdown-list-radius-above;
-    bottom: 100%;
-  }
-}
-.vti__dropdown-arrow {
-  transform: scaleY(0.5);
-  display: inline-block;
-  color: #666;
-}
-.vti__dropdown-item {
-  cursor: pointer;
-  padding: $vti-dropdown-item-padding;
-
-  .vti__flag {
-    display: inline-block;
-    margin-right: 5px;
-  }
-
-  &.highlighted {
-    background-color: $vti-dropdown-item-highlighted-color;
-  }
- 
-  &.last-preferred {
-    border-bottom: 1px solid #cacaca;
-  }
   
+  .vti__dropdown {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    padding: $vti-dropdown-padding;
+    cursor: pointer;
+  
+    &.show {
+      max-height: $vti-dropdown-max-height;
+      overflow: scroll;
+    }
+  
+    &.open {
+      background-color: $vti-dropdown-open-background-color;
+    }
+  
+    &:hover {
+      background-color: $vti-dropdown-hover-background-color;
+    }
+  
+    &.disabled {
+      cursor: no-drop;
+      outline:none;
+      background-color: $vti-dropdown-disabled-background-color;
+    }
+  }
+  .vti__selection {
+    font-size: $vti-dropdown-button-font-size;
+    display: flex;
+    align-items: center;
+  
+    .vti__country-code {
+      color: $vti-dropdown-button-font-color;
+    }
+  }
+  .vti__flag {
+    margin: $vti-dropdown-button-flag-margin;
+  }
+  .vti__dropdown-list {
+    z-index: $vti-dropdown-list-zindex;
+    padding: $vti-dropdown-list-padding;
+    margin: $vti-dropdown-list-margin;
+    text-align: left;
+    list-style: none;
+    max-height: $vti-dropdown-list-max-height;
+    overflow-y: scroll;
+    position: absolute;
+    left: -1px;
+    background-color: $vti-dropdown-list-background-color;
+    border: $vti-dropdown-list-border;
+    width: $vti-dropdown-list-width;
+  
+    &.below {
+      border-radius: $vti-dropdown-list-radius-below;
+      top: 33px;
+    }
+  
+    &.above {
+      top: auto;
+      border-radius: $vti-dropdown-list-radius-above;
+      bottom: 100%;
+    }
+  }
+  .vti__dropdown-arrow {
+    transform: scaleY(0.5);
+    display: inline-block;
+    color: #666;
+  }
+  .vti__dropdown-item {
+    cursor: pointer;
+    padding: $vti-dropdown-item-padding;
+  
+    .vti__flag {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  
+    &.highlighted {
+      background-color: $vti-dropdown-item-highlighted-color;
+    }
+
+    &.selected {
+      background-color: $vti-dropdown-item-selected-color;
+    }
+   
+    &.last-preferred {
+      border-bottom: 1px solid #cacaca;
+    }
+    
+  }
+  .vti__input {
+    border: $vti-input-border;
+    border-radius: $vti-input-border-radius;
+    width: $vti-input-width;
+    outline: none;
+    padding-left: $vti-input-padding-left;
 }
-.vti__input {
-  border: $vti-input-border;
-  border-radius: $vti-input-border-radius;
-  width: $vti-input-width;
-  outline: none;
-  padding-left: $vti-input-padding-left;
 }
