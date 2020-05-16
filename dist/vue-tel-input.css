@@ -9,30 +9,30 @@
 }
 
 .vue-tel-input.is-success {
-  border-color: green;
+  border-color: #3ab686;
 }
 
 .vue-tel-input.is-success:focus-within, .vue-tel-input.is-success.is-focused, .vue-tel-input.is-success:active, .vue-tel-input.is-success.is-active {
-  border-color: green;
-  box-shadow: 0 0 0 0.125em rgba(0, 128, 0, 0.25);
+  border-color: #3ab686;
+  box-shadow: 0 0 0 0.125em rgba(58, 182, 134, 0.25);
 }
 
 .vue-tel-input.is-warning {
-  border-color: orange;
+  border-color: #ffdd57;
 }
 
 .vue-tel-input.is-warning:focus-within, .vue-tel-input.is-warning.is-focused, .vue-tel-input.is-warning:active, .vue-tel-input.is-warning.is-active {
-  border-color: orange;
-  box-shadow: 0 0 0 0.125em rgba(255, 165, 0, 0.25);
+  border-color: #ffdd57;
+  box-shadow: 0 0 0 0.125em rgba(255, 221, 87, 0.25);
 }
 
 .vue-tel-input.is-danger {
-  border-color: red;
+  border-color: #f14668;
 }
 
 .vue-tel-input.is-danger:focus-within, .vue-tel-input.is-danger.is-focused, .vue-tel-input.is-danger:active, .vue-tel-input.is-danger.is-active {
-  border-color: red;
-  box-shadow: 0 0 0 0.125em rgba(255, 0, 0, 0.25);
+  border-color: #f14668;
+  box-shadow: 0 0 0 0.125em rgba(241, 70, 104, 0.25);
 }
 
 .vue-tel-input.disabled .vti__dropdown, .vue-tel-input.disabled .vti__input, .vue-tel-input[readonly] .vti__dropdown, .vue-tel-input[readonly] .vti__input, .vue-tel-input[disabled] .vti__dropdown, .vue-tel-input[disabled] .vti__input {
@@ -90,7 +90,7 @@
 }
 
 .vue-tel-input .vti__dropdown:hover {
-  background-color: #f3f3f3;
+  background-color: #e9e9e9;
 }
 
 .vue-tel-input .vti__dropdown.disabled {
