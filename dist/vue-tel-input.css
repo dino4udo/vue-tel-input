@@ -2,7 +2,7 @@
   display: flex;
   max-width: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   border: 1px solid #bbb;
   border-color: #bbb;
@@ -13,6 +13,7 @@
 }
 
 .vue-tel-input.is-success:focus-within, .vue-tel-input.is-success.is-focused, .vue-tel-input.is-success:active, .vue-tel-input.is-success.is-active {
+  border-color: green;
   box-shadow: 0 0 0 0.125em rgba(0, 128, 0, 0.25);
 }
 
@@ -21,6 +22,7 @@
 }
 
 .vue-tel-input.is-warning:focus-within, .vue-tel-input.is-warning.is-focused, .vue-tel-input.is-warning:active, .vue-tel-input.is-warning.is-active {
+  border-color: orange;
   box-shadow: 0 0 0 0.125em rgba(255, 165, 0, 0.25);
 }
 
@@ -29,6 +31,7 @@
 }
 
 .vue-tel-input.is-danger:focus-within, .vue-tel-input.is-danger.is-focused, .vue-tel-input.is-danger:active, .vue-tel-input.is-danger.is-active {
+  border-color: red;
   box-shadow: 0 0 0 0.125em rgba(255, 0, 0, 0.25);
 }
 
@@ -58,7 +61,7 @@
 
 .vue-tel-input .vti__input {
   border: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 15px 15px 0;
   width: 100%;
   outline: none;
   padding-left: 7px;
@@ -69,7 +72,7 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  border-radius: 5px 0 0 5px;
+  border-radius: 15px 0 0 15px;
   position: relative;
   padding: 7px;
   cursor: pointer;
@@ -124,13 +127,13 @@
 }
 
 .vue-tel-input .vti__dropdown-list.below {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 15px 15px;
   top: 33px;
 }
 
 .vue-tel-input .vti__dropdown-list.above {
   top: auto;
-  border-radius: 5px 5px 0 0;
+  border-radius: 15px 15px 0 0;
   bottom: 100%;
 }
 
