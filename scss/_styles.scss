@@ -9,15 +9,25 @@
         cursor: no-drop;
     }
   }
-  &.is-success {
-    border-color: $vti-container-success-border-color;
-  }
-  &.is-danger {
-    border-color: $vti-container-danger-border-color;
-  }
   &:focus-within {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-focus-shadow-color;
     border-color: $vti-container-focus-border-color;
+    &.is-success {
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-success-border-color;
+      border-color: $vti-container-success-border-color;
+    }
+    &.is-danger {
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-danger-border-color;
+      border-color: $vti-container-danger-border-color;
+    }
+  }
+  &.is-success {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-success-border-color;
+    border-color: $vti-container-success-border-color;
+  }
+  &.is-danger {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), $vti-container-focus-shadow-size $vti-container-danger-border-color;
+    border-color: $vti-container-danger-border-color;
   }
   
   .vti__dropdown {
