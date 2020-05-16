@@ -51,10 +51,12 @@
     border-radius: 0 $vti-radius $vti-radius 0;
     width: $vti-input-width;
     outline: none;
+    box-shadow: none;
     padding-left: $vti-input-padding-left;
   }
   .vti__dropdown {
     display: flex;
+    background-color: $vti-dropdown-background-color;
     flex-direction: column;
     align-content: center;
     justify-content: center;
