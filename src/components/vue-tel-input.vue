@@ -4,7 +4,7 @@
             <div class="control">
                 <div
                     v-click-outside="clickedOutside"
-                    :class="['vti__dropdown input', validationClasses, { open: open, disabled: dropdownOptions.disabledDropdown }]"
+                    :class="['vti__dropdown', validationClasses, { open: open, disabled: dropdownOptions.disabledDropdown }]"
                     :tabindex="dropdownOptions && dropdownOptions.tabindex ? dropdownOptions.tabindex : 0"
                     @keydown="keyboardNav"
                     @click="toggleDropdown"
@@ -67,10 +67,11 @@
                   @input="onInput"
                   @keyup.enter="onEnter"
                   @keyup.space="onSpace"/>
-              <span class="icon is-small is-right">
+              <slot name="iconRight" />
+              <!-- <span class="icon is-small is-right">
                 <i class="fa"
                 :class="phoneObject.isValid ? 'fa-check' : 'fa-exclamation-circle'"></i>
-              </span>
+              </span> -->
             </div>
         </div>
     </div>
