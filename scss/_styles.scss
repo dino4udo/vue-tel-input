@@ -65,6 +65,7 @@
     border-radius: $vti-radius 0 0 $vti-radius;
     position: relative;
     padding: $vti-dropdown-padding;
+    z-index: $vti-dropdown-list-zindex;
     cursor: pointer;
   
     &.show {
