@@ -8,6 +8,7 @@
         href="https://github.com/EducationLink/vue-tel-input/graphs/contributors">awesome humans</a>.</h2>
       <div style="width: 500px; margin: 20px auto;">
         <vue-tel-input
+          v-model="number"
           :preferred-countries="['AE', 'gb', 'ua']"
           :valid-characters-only="true"
           v-bind="bindProps"
@@ -57,9 +58,9 @@
 </template>
 
 <style lang="sass">
-  @import "../../node_modules/bulma/sass/utilities/_all.sass"
-  @import "../../node_modules/bulma/sass/base/_all.sass"
-  @import '../../node_modules/bulma/sass/form/_all.sass'
+  @import "../node_modules/bulma/sass/utilities/_all.sass"
+  @import "../node_modules/bulma/sass/base/_all.sass"
+  @import '../node_modules/bulma/sass/form/_all.sass'
 </style>
 
 <script>
@@ -71,6 +72,7 @@ export default {
   data() {
     return {
       showPlayground: false,
+      number: '522048185',
       phone: {
         number: '',
         valid: false,

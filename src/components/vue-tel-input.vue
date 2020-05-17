@@ -50,7 +50,7 @@
               <input
                   :id="inputId"
                   ref="input"
-                  v-model="phone"
+                  :value="phone"
                   type="tel"
                   :autocomplete="autocomplete"
                   :autofocus="autofocus"
