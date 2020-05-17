@@ -129,9 +129,10 @@
     color: #666;
   }
   .vti__dropdown-item {
-    cursor: pointer;
     padding: $vti-dropdown-item-padding;
-  
+    cursor: pointer;
+    z-index: $vti-dropdown-list-zindex;
+ 
     .vti__flag {
       display: inline-block;
       margin-right: 5px;

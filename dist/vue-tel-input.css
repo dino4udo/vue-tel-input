@@ -78,8 +78,9 @@
 }
 
 .vue-tel-input .vti__dropdown-item {
-  cursor: pointer;
   padding: 4px 15px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .vue-tel-input .vti__dropdown-item .vti__flag {
