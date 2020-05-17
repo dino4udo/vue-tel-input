@@ -3853,7 +3853,7 @@
         value: _vm.clickedOutside,
         expression: "clickedOutside"
       }],
-      class: ['vti__dropdown input', _vm.validationClasses, {
+      class: ['input vti__dropdown', _vm.validationClasses, {
         open: _vm.open,
         disabled: _vm.dropdownOptions.disabledDropdown
       }],

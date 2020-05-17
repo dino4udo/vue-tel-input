@@ -4,7 +4,7 @@
             <div class="control">
                 <div
                     v-click-outside="clickedOutside"
-                    :class="['vti__dropdown input', validationClasses, { open: open, disabled: dropdownOptions.disabledDropdown }]"
+                    :class="['input vti__dropdown', validationClasses, { open: open, disabled: dropdownOptions.disabledDropdown }]"
                     :tabindex="dropdownOptions && dropdownOptions.tabindex ? dropdownOptions.tabindex : 0"
                     @keydown="keyboardNav"
                     @click="toggleDropdown"
