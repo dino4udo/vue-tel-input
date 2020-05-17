@@ -509,6 +509,8 @@ var script = {
 
     }).catch(console.error).finally(function () {
       _this3.finishMounted = true;
+
+      _this3.$emit('validate', _this3.phoneObject);
     });
   },
   created: function created() {

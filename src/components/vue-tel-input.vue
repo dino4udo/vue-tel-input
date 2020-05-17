@@ -355,6 +355,7 @@ export default {
       .catch(console.error)
       .finally(() => {
         this.finishMounted = true;
+        this.$emit('validate', this.phoneObject);
       });
   },
   async created() {
