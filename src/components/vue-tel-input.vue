@@ -50,7 +50,7 @@
               <input
                   :id="inputId"
                   ref="input"
-                  :value="phone"
+                  v-model="phone"
                   type="tel"
                   :autocomplete="autocomplete"
                   :autofocus="autofocus"
@@ -302,7 +302,7 @@ export default {
         this.phone = this.phoneText;
       }
       this.$emit('validate', this.phoneObject);
-      this.$emit('onValidate', this.phoneObject); // Deprecated
+      // this.$emit('onValidate', this.phoneObject); // Deprecated
     },
     value() {
       this.phone = this.value;
@@ -467,7 +467,7 @@ export default {
       }
       if (toEmitInputEvent) {
         this.$emit('input', this.phoneText, this.phoneObject);
-        this.$emit('onInput', this.phoneObject); // Deprecated
+        // this.$emit('onInput', this.phoneObject); // Deprecated
       }
     },
     testCharacters() {
@@ -489,7 +489,7 @@ export default {
       // Returns full response for cases @input is used
       // and parent wants to return the whole response.
       this.$emit('input', this.phoneText, this.phoneObject);
-      this.$emit('onInput', this.phoneObject); // Deprecated
+      // this.$emit('onInput', this.phoneObject); // Deprecated
 
       // Keep the current cursor position just in case the input reformatted
       // and it gets moved to the last character.
@@ -499,18 +499,18 @@ export default {
     },
     onBlur() {
       this.$emit('blur');
-      this.$emit('onBlur'); // Deprecated
+      // this.$emit('onBlur'); // Deprecated
     },
     onFocus() {
       this.$emit('focus');
     },
     onEnter() {
       this.$emit('enter');
-      this.$emit('onEnter'); // Deprecated
+      // this.$emit('onEnter'); // Deprecated
     },
     onSpace() {
       this.$emit('space');
-      this.$emit('onSpace'); // Deprecated
+      // this.$emit('onSpace'); // Deprecated
     },
     focus() {
       this.$refs.input.focus();

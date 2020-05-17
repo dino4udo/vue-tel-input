@@ -448,8 +448,7 @@ var script = {
         this.phone = this.phoneText;
       }
 
-      this.$emit('validate', this.phoneObject);
-      this.$emit('onValidate', this.phoneObject); // Deprecated
+      this.$emit('validate', this.phoneObject); // this.$emit('onValidate', this.phoneObject); // Deprecated
     },
     value: function value() {
       this.phone = this.value;
@@ -661,8 +660,7 @@ var script = {
       }
 
       if (toEmitInputEvent) {
-        this.$emit('input', this.phoneText, this.phoneObject);
-        this.$emit('onInput', this.phoneObject); // Deprecated
+        this.$emit('input', this.phoneText, this.phoneObject); // this.$emit('onInput', this.phoneObject); // Deprecated
       }
     },
     testCharacters: function testCharacters() {
@@ -685,8 +683,7 @@ var script = {
       // and parent wants to return the whole response.
 
 
-      this.$emit('input', this.phoneText, this.phoneObject);
-      this.$emit('onInput', this.phoneObject); // Deprecated
+      this.$emit('input', this.phoneText, this.phoneObject); // this.$emit('onInput', this.phoneObject); // Deprecated
       // Keep the current cursor position just in case the input reformatted
       // and it gets moved to the last character.
 
@@ -695,19 +692,16 @@ var script = {
       }
     },
     onBlur: function onBlur() {
-      this.$emit('blur');
-      this.$emit('onBlur'); // Deprecated
+      this.$emit('blur'); // this.$emit('onBlur'); // Deprecated
     },
     onFocus: function onFocus() {
       this.$emit('focus');
     },
     onEnter: function onEnter() {
-      this.$emit('enter');
-      this.$emit('onEnter'); // Deprecated
+      this.$emit('enter'); // this.$emit('onEnter'); // Deprecated
     },
     onSpace: function onSpace() {
-      this.$emit('space');
-      this.$emit('onSpace'); // Deprecated
+      this.$emit('space'); // this.$emit('onSpace'); // Deprecated
     },
     focus: function focus() {
       this.$refs.input.focus();
@@ -962,6 +956,12 @@ var __vue_render__ = function __vue_render__() {
   }), 0)])]), _vm._v(" "), _c('div', {
     staticClass: "control is-expanded has-icons-right"
   }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phone,
+      expression: "phone"
+    }],
     ref: "input",
     class: ['vti__input', _vm.inputClasses, _vm.validationClasses],
     attrs: {
@@ -983,7 +983,13 @@ var __vue_render__ = function __vue_render__() {
     on: {
       "blur": _vm.onBlur,
       "focus": _vm.onFocus,
-      "input": _vm.onInput,
+      "input": [function ($event) {
+        if ($event.target.composing) {
+          return;
+        }
+
+        _vm.phone = $event.target.value;
+      }, _vm.onInput],
       "keyup": [function ($event) {
         if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) {
           return null;
