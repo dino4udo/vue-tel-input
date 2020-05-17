@@ -67,7 +67,7 @@
                   @input="onInput"
                   @keyup.enter="onEnter"
                   @keyup.space="onSpace"/>
-              <slot name="iconRight" />
+              <slot name="icon" />
               <!-- <span class="icon is-small is-right">
                 <i class="fa"
                 :class="phoneObject.isValid ? 'fa-check' : 'fa-exclamation-circle'"></i>
