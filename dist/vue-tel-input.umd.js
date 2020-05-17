@@ -3914,12 +3914,6 @@
     }), 0)])]), _vm._v(" "), _c('div', {
       staticClass: "control is-expanded has-icons-right"
     }, [_c('input', {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: _vm.phone,
-        expression: "phone"
-      }],
       ref: "input",
       class: ['vti__input', _vm.inputClasses, _vm.validationClasses],
       attrs: {
@@ -3941,13 +3935,7 @@
       on: {
         "blur": _vm.onBlur,
         "focus": _vm.onFocus,
-        "input": [function ($event) {
-          if ($event.target.composing) {
-            return;
-          }
-
-          _vm.phone = $event.target.value;
-        }, _vm.onInput],
+        "input": _vm.onInput,
         "keyup": [function ($event) {
           if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) {
             return null;
