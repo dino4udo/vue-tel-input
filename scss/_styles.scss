@@ -66,6 +66,7 @@
     position: relative;
     padding: $vti-dropdown-padding;
     cursor: pointer;
+    z-index: $vti-;
   
     &.show {
       max-height: $vti-dropdown-max-height;
@@ -113,13 +114,13 @@
     width: $vti-dropdown-list-width;
   
     &.below {
-      border-radius: $vti-dropdown-list-radius-below;
+      border-radius: 0 0 $vti-radius $vti-radius;
       top: 33px;
     }
   
     &.above {
       top: auto;
-      border-radius: $vti-dropdown-list-radius-above;
+      border-radius: $vti-radius $vti-radius 0 0;
       bottom: 100%;
     }
   }
