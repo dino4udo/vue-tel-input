@@ -28,7 +28,7 @@
 .vue-tel-input .vti__dropdown.disabled {
   cursor: no-drop;
   outline: none;
-  background-color: #f3f3f3;
+  background-color: #f3f3f3 !important;
 }
 
 .vue-tel-input .vti__selection {

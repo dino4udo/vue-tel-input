@@ -83,7 +83,7 @@
     &.disabled {
       cursor: no-drop;
       outline:none;
-      background-color: $vti-dropdown-disabled-background-color;
+      background-color: $vti-dropdown-disabled-background-color !important;
     }
   }
   .vti__selection {
