@@ -46,7 +46,7 @@
 }
 
 .vue-tel-input .vti__dropdown-list {
-  z-index: 1;
+  z-index: 10;
   padding: 0;
   margin: 0;
   text-align: left;
