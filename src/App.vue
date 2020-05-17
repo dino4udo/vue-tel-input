@@ -9,9 +9,11 @@
       <div style="width: 500px; margin: 20px auto;">
         <vue-tel-input
           v-model="number"
+          :value="number"
           :preferred-countries="['AE', 'gb', 'ua']"
           :valid-characters-only="true"
           v-bind="bindProps"
+          @validate="onInput"
           @input="onInput"/>
       </div>
       <div
@@ -103,8 +105,11 @@ export default {
     };
   },
   methods: {
-    onInput(formattedNumber, { number, valid, country }) {
-      this.phone.number = number.international;
+    onInput(formattedNumber, payload ={}) {
+      console.log(formattedNumber);
+      const  { number, valid, country } = payload
+      console.log(number, valid, country);
+      this.phone.number = number && number.international;
       this.phone.valid = valid;
       this.phone.country = country && country.name;
     },

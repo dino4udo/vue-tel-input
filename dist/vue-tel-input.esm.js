@@ -446,9 +446,10 @@ var script = {
     'phoneObject.valid': function phoneObjectValid(value) {
       if (value) {
         this.phone = this.phoneText;
-      }
+      } // this.$emit('validate', this.phoneObject);
 
-      this.$emit('validate', this.phoneObject); // this.$emit('onValidate', this.phoneObject); // Deprecated
+
+      this.$emit('validate', this.phoneText, this.phoneObject); // this.$emit('onValidate', this.phoneObject); // Deprecated
     },
     value: function value() {
       this.phone = this.value;
@@ -501,16 +502,13 @@ var script = {
     this.initializeCountry().then(function () {
       if (!_this3.phone && _this3.inputOptions && _this3.inputOptions.showDialCode && _this3.activeCountry.dialCode) {
         _this3.phone = "+".concat(_this3.activeCountry.dialCode);
-      }
+      } // this.$emit('validate', this.phoneObject);
 
-      _this3.$emit('validate', _this3.phoneObject);
 
-      _this3.$emit('onValidate', _this3.phoneObject); // Deprecated
+      _this3.$emit('validate', _this3.phoneText, _this3.phoneObject); // this.$emit('onValidate', this.phoneObject); // Deprecated
 
     }).catch(console.error).finally(function () {
       _this3.finishMounted = true;
-
-      _this3.$emit('validate', _this3.phoneObject);
     });
   },
   created: function created() {

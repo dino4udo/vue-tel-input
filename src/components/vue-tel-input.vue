@@ -301,7 +301,8 @@ export default {
       if (value) {
         this.phone = this.phoneText;
       }
-      this.$emit('validate', this.phoneObject);
+      // this.$emit('validate', this.phoneObject);
+      this.$emit('validate', this.phoneText, this.phoneObject);
       // this.$emit('onValidate', this.phoneObject); // Deprecated
     },
     value() {
@@ -349,13 +350,13 @@ export default {
           && this.activeCountry.dialCode) {
           this.phone = `+${this.activeCountry.dialCode}`;
         }
-        this.$emit('validate', this.phoneObject);
-        this.$emit('onValidate', this.phoneObject); // Deprecated
+        // this.$emit('validate', this.phoneObject);
+        this.$emit('validate', this.phoneText, this.phoneObject);
+        // this.$emit('onValidate', this.phoneObject); // Deprecated
       })
       .catch(console.error)
       .finally(() => {
         this.finishMounted = true;
-        this.$emit('validate', this.phoneObject);
       });
   },
   async created() {
