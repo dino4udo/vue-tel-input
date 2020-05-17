@@ -10,6 +10,7 @@
         <vue-tel-input
           :preferred-countries="['AE', 'gb', 'ua']"
           :valid-characters-only="true"
+          v-bind="bindProps"
           @input="onInput"/>
       </div>
       <div
@@ -55,6 +56,7 @@
   </div>
 </template>
 
+
 <script>
 import '../scss/vue-tel-input.scss';
 
@@ -67,6 +69,28 @@ export default {
         number: '',
         valid: false,
         country: undefined,
+      },
+      bindProps: {
+        mode: 'national',
+        // customValidate: '', //Custom RegEx to validate input
+        separateDialCode: true,
+        // defaultCountry: 'AE',
+        disabledFetchingCountry: true,
+        disabledFormatting: false,
+        placeholder: 'Enter a phone number',
+        enabledCountryCode: true,
+        enabledFlags: true,
+        preferredCountries: ['AE', 'IN', 'PK', 'GB'],
+        onlyCountries: [],
+        ignoredCountries: [],
+        autocomplete: 'off',
+        name: 'telephone',
+        maxLen: 25,
+        wrapperClasses: '',
+        inputClasses: 'input',
+        inputOptions: {
+          showDialCode: false,
+        },
       },
     };
   },

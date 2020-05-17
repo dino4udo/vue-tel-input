@@ -1,61 +1,86 @@
 <template>
-  <div :class="['vue-tel-input', wrapperClasses, validationClasses, { disabled: disabled }]">
-    <div
-      v-click-outside="clickedOutside"
-      :class="['vti__dropdown', { open: open, disabled: dropdownOptions.disabledDropdown }]"
-      :tabindex="dropdownOptions && dropdownOptions.tabindex ? dropdownOptions.tabindex : 0"
-      @keydown="keyboardNav"
-      @click="toggleDropdown"
-      @keydown.esc="reset"
-    >
-      <span class="vti__selection">
-        <div v-if="enabledFlags" :class="['vti__flag', activeCountry.iso2.toLowerCase()]" />
-        <span v-if="enabledCountryCode" class="vti__country-code">
-          +{{ activeCountry.dialCode }}
-        </span>
-        <slot name="arrow-icon" :open="open">
-          <span class="vti__dropdown-arrow">{{ open ? "▲" : "▼" }}</span>
-        </slot>
-      </span>
-      <ul ref="list" class="vti__dropdown-list" v-show="open" :class="dropdownOpenDirection">
-        <li
-          v-for="(pb, index) in sortedCountries"
-          :class="['vti__dropdown-item', getItemClass(index, pb.iso2)]"
-          :key="pb.iso2 + (pb.preferred ? '-preferred' : '')"
-          @click="selectedIndex = index, choose(pb, true)"
-          @mousemove="highlightedIndex = index"
-        >
-          <div v-if="enabledFlags" :class="['vti__flag', pb.iso2.toLowerCase()]" />
-          <strong>{{ pb.name }}</strong>
-          <span v-if="dropdownOptions && !dropdownOptions.disabledDialCode">
-            +{{ pb.dialCode }}
-          </span>
-        </li>
-      </ul>
+    <div :class="['vue-tel-input', wrapperClasses, { disabled: disabled }]">
+        <div class="field has-addons">
+            <div class="control">
+                <div
+                    v-click-outside="clickedOutside"
+                    :class="['vti__dropdown input', validationClasses, { open: open, disabled: dropdownOptions.disabledDropdown }]"
+                    :tabindex="dropdownOptions && dropdownOptions.tabindex ? dropdownOptions.tabindex : 0"
+                    @keydown="keyboardNav"
+                    @click="toggleDropdown"
+                    @keydown.esc="reset">
+                    <span class="vti__selection">
+                        <div
+                            v-if="enabledFlags"
+                            :class="['vti__flag', activeCountry.iso2.toLowerCase()]" />
+                        <span
+                            v-if="enabledCountryCode"
+                            class="vti__country-code">
+                            +{{ activeCountry.dialCode }}
+                        </span>
+                        <slot
+                            name="arrow-icon"
+                            :open="open">
+                            <span class="vti__dropdown-arrow">{{ open ? "▲" : "▼" }}</span>
+                        </slot>
+                    </span>
+                    <ul
+                        v-show="open"
+                        ref="list"
+                        class="vti__dropdown-list"
+                        :class="dropdownOpenDirection">
+                        <li
+                            v-for="(pb, index) in sortedCountries"
+                            :key="pb.iso2 + (pb.preferred ? '-preferred' : '')"
+                            :class="['vti__dropdown-item', getItemClass(index, pb.iso2)]"
+                            @click="selectedIndex = index, choose(pb, true)"
+                            @mousemove="highlightedIndex = index">
+                            <div
+                                v-if="enabledFlags"
+                                :class="['vti__flag', pb.iso2.toLowerCase()]" />
+                            <strong>{{ pb.name }}</strong>
+                            <span v-if="dropdownOptions && !dropdownOptions.disabledDialCode">
+                                +{{ pb.dialCode }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="control is-expanded has-icons-right">
+              <input
+                  :id="inputId"
+                  ref="input"
+                  v-model="phone"
+                  type="tel"
+                  :autocomplete="autocomplete"
+                  :autofocus="autofocus"
+                  :class="['vti__input', inputClasses, validationClasses ]"
+                  :disabled="disabled"
+                  :maxlength="maxLen"
+                  :name="name"
+                  :placeholder="parsedPlaceholder"
+                  :readonly="readonly"
+                  :required="required"
+                  :tabindex="inputOptions && inputOptions.tabindex ? inputOptions.tabindex : 0"
+                  @blur="onBlur"
+                  @focus="onFocus"
+                  @input="onInput"
+                  @keyup.enter="onEnter"
+                  @keyup.space="onSpace"/>
+              <span class="icon is-small is-right">
+                <i class="fa"
+                :class="phoneObject.isValid ? 'fa-check' : 'fa-exclamation-circle'"></i>
+              </span>
+            </div>
+        </div>
     </div>
-    <input
-      ref="input"
-      type="tel"
-      v-model="phone"
-      :autocomplete="autocomplete"
-      :autofocus="autofocus"
-      :class="['vti__input', inputClasses]"
-      :disabled="disabled"
-      :id="inputId"
-      :maxlength="maxLen"
-      :name="name"
-      :placeholder="parsedPlaceholder"
-      :readonly="readonly"
-      :required="required"
-      :tabindex="inputOptions && inputOptions.tabindex ? inputOptions.tabindex : 0"
-      @blur="onBlur"
-      @focus="onFocus"
-      @input="onInput"
-      @keyup.enter="onEnter"
-      @keyup.space="onSpace"
-    />
-  </div>
 </template>
+
+<style lang="sass">
+  @import "../../node_modules/bulma/sass/utilities/_all.sass"
+  @import "../../node_modules/bulma/sass/base/_all.sass"
+  @import '../../node_modules/bulma/sass/form/_all.sass'
+</style>
 
 <script>
 import PhoneNumber from 'awesome-phonenumber';
@@ -464,7 +489,7 @@ export default {
       if (this.customValidate && !this.testCustomValidate()) {
         return;
       }
-      this.$refs.input.setCustomValidity(this.phoneObject.valid ? '' : this.invalidMsg);
+      // this.$refs.input.setCustomValidity(this.phoneObject.valid ? '' : this.invalidMsg);
       // Returns response.number to assign it to v-model (if being used)
       // Returns full response for cases @input is used
       // and parent wants to return the whole response.

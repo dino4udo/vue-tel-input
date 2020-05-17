@@ -38,7 +38,7 @@ export const defaultOptions = {
   customValidate: false,
   defaultCountry: '',
   disabled: false,
-  disabledFetchingCountry: false,
+  disabledFetchingCountry: true,
   dropdownOptions: {
     disabledDropdown: false,
   },
