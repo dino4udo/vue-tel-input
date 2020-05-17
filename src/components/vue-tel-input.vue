@@ -77,12 +77,6 @@
     </div>
 </template>
 
-<style lang="sass">
-  @import "../../node_modules/bulma/sass/utilities/_all.sass"
-  @import "../../node_modules/bulma/sass/base/_all.sass"
-  @import '../../node_modules/bulma/sass/form/_all.sass'
-</style>
-
 <script>
 import PhoneNumber from 'awesome-phonenumber';
 import utils, { getCountry, setCaretPosition } from '../utils';
