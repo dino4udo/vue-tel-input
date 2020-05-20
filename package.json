@@ -1,14 +1,13 @@
 {
-  "name": "vue-tel-input",
+  "name": "dmc-tel-input",
   "version": "5.0.0",
   "description": "International Telephone Input with Vue",
-  "author": "Steven Dao <iamstevendao@gmail.com>",
+  "author": "Daniil Chumachenko <daniil.chumachenko@democrance.com>",
   "license": "MIT",
   "private": true,
-  "homepage": "https://educationlink.github.io/vue-tel-input/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EducationLink/vue-tel-input.git"
+    "url": "https://github.com/dino4udo/vue-tel-input"
   },
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -26,7 +25,7 @@
     "scss/"
   ],
   "main": "dist/vue-tel-input.umd.js",
-  "module": "dist/vue-tel-input.esm.js",
+  "module": "dist/index.js",
   "unpkg": "dist/vue-tel-input.min.js",
   "dependencies": {
     "@babel/runtime": "^7.8.4",
