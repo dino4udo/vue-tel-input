@@ -1,0 +1,59 @@
+// Colors
+$success: hsl(157, 52%, 47%);;
+$warning: hsl(48, 100%, 67%);;
+$danger : hsl(348, 86%, 61%);;
+
+$colors: (
+    "success": ($success),
+    "warning": ($warning),
+    "danger" : ($danger),
+);
+
+///
+
+$vti-radius      : 5px !default;
+$vti-shadow      : inset 0 1px 2px rgba(black, 0.1)	!default;
+$vti-border-size : 1px !default;
+$vti-border-color: #bbb !default;
+
+$vti-hover-color       : rgb(121, 76, 76) !default;
+$vti-hover-border-color: rgba(36, 38, 187, 0.363) !default;
+
+$vti-focus-color       : black !default;
+$vti-focus-border-color: #66afe9 !default;
+$vti-focus-shadow-size : 0 0 0 0.125em !default;
+$vti-focus-shadow-color: rgba(102, 175, 233, 0.6) !default;
+
+$vti-disabled-color           : grey !default;
+$vti-disabled-background-color: #f3f3f3 !default;
+$vti-disabled-border-color    : none !default;
+
+///
+
+$vti-dropdown-padding                  : 7px !default;
+$vti-dropdown-background-color         : #f3f3f3 !default;
+$vti-dropdown-max-height               : 300px !default;
+$vti-dropdown-open-background-color    : #f3f3f3 !default;
+$vti-dropdown-hover-background-color   : #e9e9e9 !default;
+$vti-dropdown-disabled-background-color: #f3f3f3 !default;
+
+$vti-dropdown-list-zindex          : 10 !default;
+$vti-dropdown-list-padding         : 0 !default;
+$vti-dropdown-list-margin          : 0 !default;
+$vti-dropdown-list-max-height      : 200px !default;
+$vti-dropdown-list-background-color: #fff !default;
+$vti-dropdown-list-border          : 1px solid #ccc !default;
+$vti-dropdown-list-width           : 390px !default;
+
+$vti-dropdown-item-padding          : 4px 15px !default;
+$vti-dropdown-item-highlighted-color: #f3f3f3 !default;
+$vti-dropdown-item-selected-color   : #f3f3f3 !default;
+
+$vti-button-font-size  : 0.8em !default;
+$vti-button-font-color : #666 !default;
+$vti-button-flag-margin: 0 5px 0 6px !default;
+
+$vti-input-border: none !default;
+// $vti-input-border-radius: 0 2px 2px 0 !default;
+$vti-input-width       : 100% !default;
+$vti-input-padding-left: 7px !default;

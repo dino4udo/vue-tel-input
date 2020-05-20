@@ -38,8 +38,10 @@ export const defaultOptions = {
   customValidate: false,
   defaultCountry: '',
   disabled: false,
-  disabledFetchingCountry: false,
-  dropdownOptions: {},
+  disabledFetchingCountry: true,
+  dropdownOptions: {
+    disabledDropdown: false,
+  },
   dynamicPlaceholder: false,
   enabledCountryCode: false,
   enabledFlags: true,

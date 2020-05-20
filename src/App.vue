@@ -8,8 +8,11 @@
         href="https://github.com/EducationLink/vue-tel-input/graphs/contributors">awesome humans</a>.</h2>
       <div style="width: 500px; margin: 20px auto;">
         <vue-tel-input
-          :preferred-countries="['us', 'gb', 'ua']"
+          v-model="number"
+          :preferred-countries="['ae', 'gb', 'ua']"
           :valid-characters-only="true"
+          v-bind="bindProps"
+          @validate="onInput"
           @input="onInput"/>
       </div>
       <div
@@ -55,16 +58,45 @@
   </div>
 </template>
 
+<style lang="sass">
+  @import "../node_modules/bulma/sass/utilities/_all.sass"
+  @import "../node_modules/bulma/sass/base/_all.sass"
+  @import '../node_modules/bulma/sass/form/_all.sass'
+</style>
 <script>
+import '../scss/vue-tel-input.scss';
 export default {
   name: 'App',
   data() {
     return {
       showPlayground: false,
+      number: '522048185',
       phone: {
         number: '',
         valid: false,
         country: undefined,
+      },
+      bindProps: {
+        mode: 'national',
+        // customValidate: '', //Custom RegEx to validate input
+        separateDialCode: true,
+        // defaultCountry: 'AE',
+        disabledFetchingCountry: true,
+        disabledFormatting: false,
+        placeholder: 'Enter a phone number',
+        enabledCountryCode: true,
+        enabledFlags: true,
+        preferredCountries: ['AE', 'IN', 'PK', 'GB'],
+        onlyCountries: [],
+        ignoredCountries: [],
+        autocomplete: 'off',
+        name: 'telephone',
+        maxLen: 25,
+        wrapperClasses: '',
+        inputClasses: 'input',
+        inputOptions: {
+          showDialCode: false,
+        },
       },
     };
   },

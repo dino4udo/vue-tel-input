@@ -1,8 +1,10 @@
 <template>
   <div :class="['vue-tel-input', wrapperClasses, { disabled: disabled }]">
+    <div class="field has-addons">
+    <div class="control">
     <div
       v-click-outside="clickedOutside"
-      :class="['vti__dropdown', { open: open }]"
+      :class="['input vti__dropdown', validationClasses, { open, disabled: dropdownOptions.disabledDropdown }]"
       :tabindex="dropdownOptions && dropdownOptions.tabindex ? dropdownOptions.tabindex : 0"
       @keydown="keyboardNav"
       @click="toggleDropdown"
@@ -20,10 +22,10 @@
       <ul ref="list" class="vti__dropdown-list" v-show="open" :class="dropdownOpenDirection">
         <li
           v-for="(pb, index) in sortedCountries"
-          :class="['vti__dropdown-item', getItemClass(index, pb.iso2)]"
           :key="pb.iso2 + (pb.preferred ? '-preferred' : '')"
-          @click="choose(pb, true)"
-          @mousemove="selectedIndex = index"
+          :class="['vti__dropdown-item', getItemClass(index, pb.iso2)]"
+          @click="selectedIndex = index, choose(pb, true)"
+          @mousemove="highlightedIndex = index"
         >
           <div v-if="enabledFlags" :class="['vti__flag', pb.iso2.toLowerCase()]" />
           <strong>{{ pb.name }}</strong>
@@ -33,15 +35,17 @@
         </li>
       </ul>
     </div>
+    </div>
+    <div class="control is-expanded has-icons-right">
     <input
+      :id="inputId"
       ref="input"
-      type="tel"
       v-model="phone"
+      type="tel"
       :autocomplete="autocomplete"
       :autofocus="autofocus"
-      :class="['vti__input', inputClasses]"
+      :class="['vti__input', inputClasses, validationClasses ]"
       :disabled="disabled"
-      :id="inputId"
       :maxlength="maxLen"
       :name="name"
       :placeholder="parsedPlaceholder"
@@ -54,6 +58,9 @@
       @keyup.enter="onEnter"
       @keyup.space="onSpace"
     />
+    <slot name="icon" />
+  </div>
+  </div>
   </div>
 </template>
 
@@ -193,6 +200,7 @@ export default {
       activeCountry: { iso2: '' },
       open: false,
       finishMounted: false,
+      highlightedIndex: null,
       selectedIndex: null,
       typeToFindInput: '',
       typeToFindTimer: null,
@@ -258,6 +266,14 @@ export default {
       });
       return result;
     },
+    validationClasses() {
+      return this.phoneText
+        ? {
+          'is-success': this.phoneObject.isValid,
+          'is-danger': !this.phoneObject.isValid,
+        }
+        : {};
+    },
     phoneText() {
       let key = 'input';
       if (this.phoneObject.valid) {
@@ -273,7 +289,7 @@ export default {
         this.phone = this.phoneText;
       }
       this.$emit('validate', this.phoneObject);
-      this.$emit('onValidate', this.phoneObject); // Deprecated
+      // this.$emit('onValidate', this.phoneObject); // Deprecated
     },
     value() {
       this.phone = this.value;
@@ -321,7 +337,7 @@ export default {
           this.phone = `+${this.activeCountry.dialCode}`;
         }
         this.$emit('validate', this.phoneObject);
-        this.$emit('onValidate', this.phoneObject); // Deprecated
+        // this.$emit('onValidate', this.phoneObject); // Deprecated
       })
       .catch(console.error)
       .finally(() => {
@@ -405,11 +421,13 @@ export default {
       return this.filteredCountries.find((country) => country.iso2 === iso.toUpperCase());
     },
     getItemClass(index, iso2) {
-      const highlighted = this.selectedIndex === index;
+      const highlighted = this.highlightedIndex === index;
+      const selected = this.selectedIndex === index;
       const lastPreferred = index === this.preferredCountries.length - 1;
       const preferred = this.preferredCountries.some((c) => c.toUpperCase() === iso2);
       return {
         highlighted,
+        selected,
         'last-preferred': lastPreferred,
         preferred,
       };
@@ -436,7 +454,7 @@ export default {
       }
       if (toEmitInputEvent) {
         this.$emit('input', this.phoneText, this.phoneObject);
-        this.$emit('onInput', this.phoneObject); // Deprecated
+        // this.$emit('onInput', this.phoneObject); // Deprecated
       }
     },
     testCharacters() {
@@ -458,7 +476,7 @@ export default {
       // Returns full response for cases @input is used
       // and parent wants to return the whole response.
       this.$emit('input', this.phoneText, this.phoneObject);
-      this.$emit('onInput', this.phoneObject); // Deprecated
+      // this.$emit('onInput', this.phoneObject); // Deprecated
 
       // Keep the current cursor position just in case the input reformatted
       // and it gets moved to the last character.
@@ -468,24 +486,24 @@ export default {
     },
     onBlur() {
       this.$emit('blur');
-      this.$emit('onBlur'); // Deprecated
+      // this.$emit('onBlur'); // Deprecated
     },
     onFocus() {
       this.$emit('focus');
     },
     onEnter() {
       this.$emit('enter');
-      this.$emit('onEnter'); // Deprecated
+      // this.$emit('onEnter'); // Deprecated
     },
     onSpace() {
       this.$emit('space');
-      this.$emit('onSpace'); // Deprecated
+      // this.$emit('onSpace'); // Deprecated
     },
     focus() {
       this.$refs.input.focus();
     },
     toggleDropdown() {
-      if (this.disabled) {
+      if (this.disabled || this.dropdownOptions.disabledDropdown) {
         return;
       }
       this.open = !this.open;
@@ -568,99 +586,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.vue-tel-input {
-  border-radius: 3px;
-  display: flex;
-  border: 1px solid #bbb;
-  text-align: left;
-}
-.vue-tel-input.disabled .selection,
-.vue-tel-input.disabled .dropdown,
-.vue-tel-input.disabled input {
-  cursor: no-drop;
-}
-.vue-tel-input:focus-within {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  border-color: #66afe9;
-}
-.vti__dropdown {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  position: relative;
-  padding: 7px;
-  cursor: pointer;
-}
-.vti__dropdown.show {
-  max-height: 300px;
-  overflow: scroll;
-}
-.vti__dropdown.open {
-  background-color: #f3f3f3;
-}
-.vti__dropdown:hover {
-  background-color: #f3f3f3;
-}
-.vti__selection {
-  font-size: 0.8em;
-  display: flex;
-  align-items: center;
-}
-.vti__selection .vti__country-code {
-  color: #666;
-}
-.vti__flag {
-  margin-right: 5px;
-  margin-left: 5px;
-}
-.vti__dropdown-list {
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  list-style: none;
-  max-height: 200px;
-  overflow-y: scroll;
-  position: absolute;
-  left: -1px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  width: 390px;
-}
-.vti__dropdown-list.below {
-  top: 33px;
-}
-.vti__dropdown-list.above {
-  top: auto;
-  bottom: 100%;
-}
-.vti__dropdown-arrow {
-  transform: scaleY(0.5);
-  display: inline-block;
-  color: #666;
-}
-.vti__dropdown-item {
-  cursor: pointer;
-  padding: 4px 15px;
-}
-.vti__dropdown-item.highlighted {
-  background-color: #f3f3f3;
-}
-.vti__dropdown-item.last-preferred {
-  border-bottom: 1px solid #cacaca;
-}
-.vti__dropdown-item .vti__flag {
-  display: inline-block;
-  margin-right: 5px;
-}
-.vti__input {
-  border: none;
-  border-radius: 0 2px 2px 0;
-  width: 100%;
-  outline: none;
-  padding-left: 7px;
-}
-</style>
