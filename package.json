@@ -4,6 +4,7 @@
   "description": "International Telephone Input with Vue",
   "author": "Steven Dao <iamstevendao@gmail.com>",
   "license": "MIT",
+  "private": true,
   "homepage": "https://educationlink.github.io/vue-tel-input/",
   "repository": {
     "type": "git",
