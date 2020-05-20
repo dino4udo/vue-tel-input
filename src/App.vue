@@ -106,7 +106,6 @@ export default {
   },
   methods: {
     onInput(formattedNumber, payload ={}) {
-      console.log(formattedNumber);
       const  { number, valid, country } = payload
       console.log(number, valid, country);
       this.phone.number = number && number.international;
