@@ -7,8 +7,8 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
-    // '@vue/airbnb',
-    'plugin:jest/recommended',
+    '@vue/airbnb',
+    // 'plugin:jest/recommended',
   ],
   plugins: ['vue'],
   parserOptions: {
